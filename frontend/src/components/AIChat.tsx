@@ -13,6 +13,7 @@ import toast from "react-hot-toast";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { ClipLoader } from "react-spinners";
+import { aiAPI } from "@/services/api";
 
 interface Message {
   role: "user" | "assistant";
@@ -59,12 +60,9 @@ export default function AIChat() {
     try {
       setLoading(true);
 
-      const res = await axios.post(
-        "http://localhost:5002/api/ai/chat",
-        {
-          message: userQuestion,
-        }
-      );
+      const res = await aiAPI.post("/ai/chat", {
+  message: userQuestion,
+});
 
       setMessages((prev) => [
         ...prev,
