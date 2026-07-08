@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(
+    135deg,
+    #f8fbff,
+    #eef4ff,
+    #f5f3ff
+  );
+}
+
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+.card {
+  @apply bg-white rounded-2xl shadow-xl border border-gray-100;
+}
